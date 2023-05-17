@@ -411,3 +411,9 @@ background-color: #656565;
 .my-line-height {
   line-height: 1.6;
 }
+.pjt-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 15px;
+}
