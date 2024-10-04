@@ -1,0 +1,24 @@
+---
+import { twMerge } from "tailwind-merge";
+import { navbarLinks } from "../shared/data/navbarLinks";
+
+interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<nav class={twMerge("border-l border-white bg-slate-700 fixed inset-y-0 my-auto right-0 h-[500px] w-[200px]", className)}>
+  <ul class="flex flex-col gap-2">
+    {
+      navbarLinks.map((link) => (
+        <li>
+          <a href={link.path}
+            class="text-white text-xl uppercase">{link.name}</a>
+          
+        </li>
+      ))
+    }
+  </ul>
+</nav>

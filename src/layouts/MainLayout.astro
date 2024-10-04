@@ -1,0 +1,14 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Layout from "./Layout.astro";
+
+
+---
+
+
+<Layout className="relative page-padding" title="david-ouatedem">
+    <main class="lg:pr-[200px] mx-auto w-full">
+        <slot/>
+	</main>
+    <Navbar />
+</Layout>
