@@ -1,42 +1,23 @@
 ---
-import GithubIcon from "../assets/icons/GithubIcon.astro";
-import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
-import XIcon from "../assets/icons/XIcon.astro";
+import MainLayoutTopHeader from "../components/MainLayoutTopHeader.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const navIcon = document.querySelector('#nav-icon')!;
+	const sidebar = document.querySelector('#sidebar')!;
+
+    navIcon.addEventListener("click", () => {
+        navIcon.classList.toggle("open");
+		sidebar.classList.toggle("translate-x-[200%]");
+    });
+});
+</script>
+
 <MainLayout>
-  <div class="py-8 px-4 flex items-center justify-between">
-    <a href="/" class="text-3xl font-bold text-white">DAVE</a>
-    <ul class="flex items-center gap-2">
-      <li
-        class="size-10 rounded-full border border-white/20 cursor-pointer flex items-center justify-center"
-      >
-        <a
-          target="_blank"
-          href="https://www.linkedin.com/in/david-ouatedem-077985253/"
-        >
-          <LinkedInIcon className="size-4 fill-white" />
-        </a>
-      </li>
-      <li
-        class="size-10 rounded-full border border-white/20 cursor-pointer flex items-center justify-center"
-      >
-        <a target="_blank" href="https://github.com/david-ouatedem">
-          <GithubIcon className="size-4 fill-white" />
-        </a>
-      </li>
-      <li
-        class="size-10 rounded-full border border-white/20 cursor-pointer flex items-center justify-center"
-      >
-        <a target="_blank" href="https://x.com/davdev1400">
-          <XIcon className="size-4 fill-white" />
-        </a>
-      </li>
-    </ul>
-    <a class="text-white text-xs uppercase" href="">davdev1400@gmail.com</a>
-  </div>
-  <section id="home" class="bg-primary min-h-screen rounded-t-2xl">
+  <MainLayoutTopHeader />
+  <section id="home" class="bg-primary h-[1000px] rounded-t-2xl">
     <h1 class="text-3xl font-bold underline">Hello world!</h1>
   </section>
   <section id="services" class="h-[1000px] bg-blue-500">Content for Section 2</section>
