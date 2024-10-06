@@ -1,6 +1,61 @@
-
+html {
+  scroll-behavior: smooth;
+}
 
 .page-padding {
-    padding-left: 16px;
-    padding-right: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.sora {
+  font-family: "Sora", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.nav-item {
+  position: relative;
+  
+}
+.nav-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+.nav-item:hover::after {
+  width: 100%;
+}
+.nav-item:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -0.125rem;
+  height: 100%;
+  width: 0.25rem;
+  background-color: #c8f31d;
+}
+
+
+.active-nav::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.active-nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -0.125rem;
+  height: 100%;
+  width: 0.25rem;
+  background-color: #c8f31d;
+  /* transition: all 1s ease-in-out; */
 }

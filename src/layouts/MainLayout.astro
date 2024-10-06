@@ -3,7 +3,54 @@ import Navbar from "../components/Navbar.astro";
 import Layout from "./Layout.astro";
 
 
+
+
+
 ---
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+  // Select all sections and sidebar links
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("#sidebar a");
+
+  // Callback function for IntersectionObserver
+  const observerCallback = (entries: any[]) => {
+    entries.forEach((entry: { isIntersecting: any; target: { id: any; }; }) => {
+      // Check if the section is in the viewport
+      if (entry.isIntersecting) {
+        const activeSectionId = entry.target.id;
+
+        // Remove the 'active' class from all links
+        navLinks.forEach((link) => {
+          link.classList.remove("active-nav");
+        });
+
+        // Add 'active' class to the corresponding link
+        const activeLink = document.querySelector(`#sidebar a[data-section="${activeSectionId}"]`);
+        if (activeLink) {
+          activeLink.classList.add("active-nav");
+        }
+      }
+    });
+  };
+
+  // Set up IntersectionObserver
+  const observerOptions = {
+    root: null, // Use the viewport as the root
+    threshold: 0.5, // Trigger when 50% of the section is visible
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  // Observe each section
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+});
+
+</script>
 
 
 <Layout className="relative page-padding" title="david-ouatedem">

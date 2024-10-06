@@ -9,16 +9,30 @@ interface Props {
 const { className } = Astro.props;
 ---
 
-<nav class={twMerge("border-l border-white bg-slate-700 fixed inset-y-0 my-auto right-0 h-[500px] w-[200px]", className)}>
+<nav
+  id="sidebar"
+  class={twMerge(
+    "border-l border-white fixed inset-y-0 my-auto right-0 h-[500px] w-[200px]",
+    className
+  )}
+>
   <ul class="flex flex-col gap-2">
     {
-      navbarLinks.map((link) => (
-        <li>
-          <a href={link.path}
-            class="text-white text-xl uppercase">{link.name}</a>
-          
-        </li>
-      ))
+      navbarLinks.map((link) => {
+        return (
+          <li class="">
+            <a
+              data-section={link.name.toLowerCase()}
+              href={link.path}
+              class={twMerge(
+                `text-white text-xl pl-6 py-1.5 h-full block font-medium w-full nav-item`
+              )}
+            >
+              {link.name}
+            </a>
+          </li>
+        );
+      })
     }
   </ul>
 </nav>
